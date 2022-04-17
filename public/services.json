@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Widding Photography",
+        "price": "Per day 5000",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/BGnsZ9v/widding.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Modelling Photography",
+        "price": "Per day 6000",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/hs8Hr9K/modeling.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Playing Photography",
+        "price": "Per day 10000",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/C7w4cP9/playeng.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Traveling Photography",
+        "price": "Per day 4000",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/tQZ1fQ4/traveling.jpg"
+    }
+]
