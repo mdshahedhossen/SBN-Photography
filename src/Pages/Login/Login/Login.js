@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import SocilLogin from "../SocilLogin/SocilLogin";
 import './Login.css'
 
 const Login = () => {
@@ -10,22 +11,27 @@ const Login = () => {
     const passwordRef=useRef('')
     const navigate=useNavigate()
     const [
-        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useSignInWithEmailAndPassword(auth);
 
     const handleLogin=e=>{
         e.preventDefault();
         const email=emailRef.current.value;
         const password=passwordRef.current.value;
-        createUserWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(email, password)
         // console.log(email,password)
     }
     if(user){
         navigate('/home')
     }
+    
+    let errorelement;
+    if (error) {
+        errorelement=<p>Sorry!! User not found</p>  
+      }
 
   return (
     <div className="form-container">
@@ -39,6 +45,7 @@ const Login = () => {
         <Form.Label >Password</Form.Label>
         <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
       </Form.Group>
+      <p style={{color:'red'}}>{errorelement}</p>
       <Button className="btn-login" variant="primary" type="submit">
         Login
       </Button>
@@ -46,6 +53,9 @@ const Login = () => {
     <p className="new-user">
         New User? <Link className="from-link" to='/register'>Create New Account</Link>
     </p>
+     <div className="socilLogin">
+     <SocilLogin></SocilLogin>
+     </div>
     </div>
   );
 };
