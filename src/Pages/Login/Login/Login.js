@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import auth from "../../../firebase.init";
 import SocilLogin from "../SocilLogin/SocilLogin";
 import './Login.css'
@@ -19,6 +21,7 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+      const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     const handleLogin=e=>{
         e.preventDefault();
@@ -35,6 +38,16 @@ const Login = () => {
     if (error) {
         errorelement=<p>Sorry!! User not found</p>  
       }
+      const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else{
+            toast('please enter your email address');
+        }
+    }
 
   return (
     <div className="form-container">
@@ -57,10 +70,11 @@ const Login = () => {
         New User? <Link className="from-link" to='/register'>Create New Account</Link>
     </p>
     <p className="new-user">
-        Forget Password? <Link className="from-link" to='/register'>Reset password</Link>
+        Forget Password? <button onClick={resetPassword} className="text-primary p-auto">Reset password</button>
     </p>
      <div className="socilLogin">
      <SocilLogin></SocilLogin>
+     <ToastContainer />
      </div>
     </div>
   );
