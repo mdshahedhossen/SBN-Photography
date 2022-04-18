@@ -1,5 +1,5 @@
 # Customers cars Reviews
-Deploy link:(https:https://customercarreviews.netlify.app).
+Deploy link:(https://customercarreviews.netlify.app)
 
 <div>
   <ul>
