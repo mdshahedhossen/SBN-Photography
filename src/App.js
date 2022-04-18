@@ -7,6 +7,7 @@ import Register from './Pages/Login/Register/Register';
 import Blogs from './Pages/Blogs/Blogs';
 import ServicesDetails from './Pages/ServicesDetails/ServicesDetails';
 import ReqireAuth from './Pages/ReqireAuth/ReqireAuth';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         }></Route>
         <Route path='register' element={<Register></Register>}></Route>
       </Routes>
+      <Footer></Footer>
       
     </div>
   );
