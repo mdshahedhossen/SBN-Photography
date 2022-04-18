@@ -10,6 +10,7 @@ import ReqireAuth from './Pages/ReqireAuth/ReqireAuth';
 import Footer from './Pages/Shared/Footer/Footer';
 import Gallery from './Pages/Gallery/Gallery';
 import About from './Pages/About/About';
+import Notmatch from './Pages/Notmatch/Notmatch';
 
 function App() {
   return (
@@ -19,7 +20,13 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>        
         <Route path='/home' element={<Home></Home>}></Route> 
         <Route path='/gallery' element={<Gallery></Gallery>}></Route> 
-        <Route path='/about' element={<About></About>}></Route> 
+
+        <Route path='/about' element={
+          <ReqireAuth>
+            <About></About>
+          </ReqireAuth>
+        }></Route> 
+
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/service/:serviceid' element={
@@ -28,7 +35,10 @@ function App() {
           </ReqireAuth>
         }></Route>
         <Route path='register' element={<Register></Register>}></Route>
+        <Route path='*' element={<Notmatch></Notmatch>}></Route>
+
       </Routes>
+
       <Footer></Footer>
       
     </div>

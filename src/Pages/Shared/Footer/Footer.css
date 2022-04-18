@@ -18,6 +18,8 @@
     background-color: black;
     padding: 20px;
     color: rgb(216, 209, 209);
+    position: relative;
+  
   }
   a{
     color: white;

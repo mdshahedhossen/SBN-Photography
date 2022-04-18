@@ -2,7 +2,6 @@
     background-color: rgb(230, 232, 235);
     width: 40%;
     margin: 60px auto;
-    height: auto;
     margin-top: 80px;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -33,4 +32,26 @@
 }
 .from-link:hover{
     color: rgb(43, 223, 43);
+}
+
+@media only screen and (max-width: 576px){
+    .form-container{
+        width: 90%;
+        
+    }
+    .btn-login{
+        width: 70%;
+    }
+    
+}
+@media only screen and (min-width: 577px) and (max-width: 992px){
+    .form-container{
+        width: 90%;
+        
+    }
+    .btn-login{
+        width: 70%;
+    }
+
+
 }
