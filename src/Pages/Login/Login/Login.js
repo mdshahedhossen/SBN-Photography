@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import SocilLogin from "../SocilLogin/SocilLogin";
 import './Login.css'
@@ -10,6 +10,9 @@ const Login = () => {
     const emailRef = useRef('');
     const passwordRef=useRef('')
     const navigate=useNavigate()
+    const location=useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -25,7 +28,7 @@ const Login = () => {
         // console.log(email,password)
     }
     if(user){
-        navigate('/home')
+      navigate(from, { replace: true });
     }
     
     let errorelement;
@@ -52,6 +55,9 @@ const Login = () => {
     </Form>
     <p className="new-user">
         New User? <Link className="from-link" to='/register'>Create New Account</Link>
+    </p>
+    <p className="new-user">
+        Forget Password? <Link className="from-link" to='/register'>Reset password</Link>
     </p>
      <div className="socilLogin">
      <SocilLogin></SocilLogin>

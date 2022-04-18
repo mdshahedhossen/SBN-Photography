@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import Blogs from './Pages/Blogs/Blogs';
 import ServicesDetails from './Pages/ServicesDetails/ServicesDetails';
+import ReqireAuth from './Pages/ReqireAuth/ReqireAuth';
 
 function App() {
   return (
@@ -16,7 +17,11 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route> 
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
-        <Route path='/service/:serviceid' element={<ServicesDetails></ServicesDetails>}></Route>
+        <Route path='/service/:serviceid' element={
+          <ReqireAuth>
+            <ServicesDetails></ServicesDetails>
+          </ReqireAuth>
+        }></Route>
         <Route path='register' element={<Register></Register>}></Route>
       </Routes>
       
